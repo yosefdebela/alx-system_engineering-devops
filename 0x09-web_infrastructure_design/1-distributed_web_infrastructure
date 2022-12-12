@@ -1,1 +1,22 @@
 https://imgur.com/4ycmEJw
+        here there two servers. Each server has it's own web server,
+        application server, codebase, and Database. It will be helpful incase
+        there is alot of traffic, failure in the other server.
+        It also has a HA proxy loadbalancer. This will distribute traffic
+        among the two servers
+        
+        It can be either, Weighted round robin, where each server is weighed
+        and the server that weighs more gets frequent requests or Weighted least
+        connection, where each server is weighed and request is sent to the one
+        with least conections.
+        
+         SPOF still resides with having one client, over the network.
+         Another issue will be if these two servers reside in the same
+         datacenter, and in that data center they share the same power source.
+         2. There are still security issues. It is using HTTP which is not
+         secure as data is being transfered without being encrpted. It lacks
+         firewall meaning any incoming traffic has access to the data.
+         
+         here is no monitoring being done, we don't know whether our web
+         is online, working fast, returning error everytime or monitoring
+         requests.
