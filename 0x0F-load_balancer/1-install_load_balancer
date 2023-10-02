@@ -17,7 +17,7 @@ frontend  yosef-frontend
 backend yosef-backend
         balance roundrobin
         server 90058-web-01 54.174.219.233:80 check
-        server 90058-web-02 54.165.192.62:80 check
+        server 90058-web-02 52.23.244.196:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
