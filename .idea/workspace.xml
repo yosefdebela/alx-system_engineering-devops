@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2257d654-4729-4d78-8fd3-44b17d028157" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/0x0C-web_server/hi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0x0C-web_server/ubuntu@jossyrad.tech" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0x0C-web_server/ubuntu@myweb.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0x10-https_ssl/100-redirect_http_to_https" beforeDir="false" afterPath="$PROJECT_DIR$/0x10-https_ssl/100-redirect_http_to_https" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0x16-api_advanced/0-subs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0x16-api_advanced/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0x16-api_advanced/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0x15-api/3-dictionary_of_list_of_dictionaries.py" beforeDir="false" afterPath="$PROJECT_DIR$/0x15-api/3-dictionary_of_list_of_dictionaries.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,10 +30,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2agjB5i4v3ogA1MAEOKRDfaTM00" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +41,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.0-subs.executor": "Run",
     "Python.1-export_to_CSV.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -39,7 +49,29 @@
     "last_opened_file_path": "/home/yos/stack@alx/alx-system_engineering-devops"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.0-subs">
+    <configuration name="0-subs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="alx-system_engineering-devops" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/0x16-api_advanced" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/0x16-api_advanced/0-subs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="1-export_to_CSV" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="alx-system_engineering-devops" />
       <option name="ENV_FILES" value="" />
@@ -64,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.0-subs" />
         <item itemvalue="Python.1-export_to_CSV" />
       </list>
     </recent_temporary>
