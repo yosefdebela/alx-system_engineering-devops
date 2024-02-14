@@ -1,27 +1,24 @@
-#!/usr/bin/python3
-"""
-number of subscribers for a given subreddit
-"""
-
-from requests import get
-
+import praw
 
 def number_of_subscribers(subreddit):
-    """
-    Function to return the number of subscribers
-    if invalid funciton will return 0
-    """
-
-    if subreddit is None or not isinstance(subreddit, str):
-        return 0
-
-    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
-    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    response = get(url, headers=user_agent)
-    results = response.json()
+    # Initialize Reddit instance
+    reddit = praw.Reddit(client_id='your_client_id',
+                         client_secret='your_client_secret',
+                         user_agent='your_user_agent')
 
     try:
-        return results.get('data').get('subscribers')
+        # Get subreddit info
+        subreddit_info = reddit.subreddit(subreddit)
+        # Return number of subscribers
+        return subreddit_info.subscribers
+    except Exception as e:
+        print("Error:", e)
+        return None
 
-    except Exception:
-        return 0
+# Example usage
+subreddit_name = "python"
+subscribers = number_of_subscribers(subreddit_name)
+if subscribers is not None:
+    print(f"The number of subscribers in r/{subreddit_name}: {subscribers}")
+else:
+    print("Failed to fetch subscriber count.")
