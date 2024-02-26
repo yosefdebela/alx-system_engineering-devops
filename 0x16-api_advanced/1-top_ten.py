@@ -30,7 +30,7 @@ def top_ten(subreddit):
         print(f"Error fetching subreddit data: {e}")
         return
 
-# # Example usage
-# subreddit_name = "python"
-# print(f"Top 10 hot posts in r/{subreddit_name}:")
-# top_ten(subreddit_name)
+# Example usage
+subreddit_name = "python"
+print(f"Top 10 hot posts in r/{subreddit_name}:")
+top_ten(subreddit_name)

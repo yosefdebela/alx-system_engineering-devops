@@ -36,6 +36,4 @@ var  superHeros = {
     ]
   }
   
-  console.log(superHeros.homeTown)
-
-  
+ 
