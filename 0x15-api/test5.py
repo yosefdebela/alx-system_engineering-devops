@@ -9,7 +9,7 @@ def make_request(url):
     try:
         with urlopen(url, timeout=10) as response:
             print(response.status)
-            return response.read(), response
+            return response.read(), print(response.headers)
 
     except UnicodeError as error:
         print(error)
