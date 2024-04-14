@@ -4,7 +4,6 @@
 import requests
 import sys
 
-
 if __name__ == '__main__':
     employeeId = sys.argv[1]
     baseUrl = "https://jsonplaceholder.typicode.com/users"
@@ -14,7 +13,7 @@ if __name__ == '__main__':
     employeeName = response.json().get('name')
 
     todoUrl = url + "/todos"
-    response = requests.get(todoUrl)
+    response = requests.get(todoUrl) # this will gives a list of dicts
     tasks = response.json()
     done = 0
     done_tasks = []
