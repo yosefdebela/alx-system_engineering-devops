@@ -1,35 +1,33 @@
-#!/usr/bin/python3
-"""
-number of subscribers for a given subreddit
-"""
 import requests
-from requests import get
+
+USER_AGENT = {'User-agent': 'Mozilla/5.0'}  # Updated user-agent to a common browser
 
 
 def number_of_subscribers(subreddit):
     """
-    function that queries the Reddit API and returns the number of subscribers
+    Function that queries the Reddit API and returns the number of subscribers
     (not active users, total subscribers) for a given subreddit.
     """
 
-    # if subreddit is None or not isinstance(subreddit, str):
-    #     return 0
+    # Validating subreddit input
+    if not isinstance(subreddit, str) or " " in subreddit or not subreddit.startswith("r/"):
+        return None  # Invalid subreddit format
 
-    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
-    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    response = requests.get(url, headers=user_agent)
-    results = response.json()
-    # print(response.content)
-    # print(response.encoding.)
-    # print(results.get("data").get("subscribers"))
-
+    url = f'https://www.reddit.com/{subreddit}/about.json'
     try:
-        print(results.get("data").get("subscribers"))
+        response = requests.get(url, headers=USER_AGENT)
+        response.raise_for_status()  # Raises an exception for 4XX and 5XX status codes
+        results = response.json()
+        return results.get("data").get("subscribers")
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return None
 
-    except Exception:
-        return 0
-       
 
-
-
-number_of_subscribers("learnpython")
+# Example usage
+subreddit_name = "r/learnpython"
+subscribers_count = number_of_subscribers(subreddit_name)
+if subscribers_count is not None:
+    print(f"The number of subscribers in {subreddit_name} is: {subscribers_count}")
+else:
+    print("Failed to retrieve subscriber count.")
