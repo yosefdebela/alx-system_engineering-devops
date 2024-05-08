@@ -19,7 +19,7 @@ def number_of_subscribers(Subreddit):
     user_agent = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
                                 '(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'}
     url = 'https://www.reddit.com/r/{}/about.json'.format(Subreddit)
-    response = requests.get(url, headers=user_agent)
+    response = requests.get(url)
     results = response.json()
 
     # print(response.content)
@@ -30,3 +30,4 @@ def number_of_subscribers(Subreddit):
 
 
 print(number_of_subscribers("learnpython"))
+
