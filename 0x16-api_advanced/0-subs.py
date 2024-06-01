@@ -48,12 +48,12 @@ def number_of_subscribers(subreddit):
         return 0
 
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: {} <subreddit>".format(sys.argv[0]))
-        sys.exit(1)
-    subreddit = sys.argv[1]
-    print("Subreddit: {}".format(subreddit))
-    print("Number of subscribers: {}".format(number_of_subscribers(subreddit)))
+# if __name__ == "__main__":
+#     if len(sys.argv) < 2:
+#         print("Usage: {} <subreddit>".format(sys.argv[0]))
+#         sys.exit(1)
+#     subreddit = sys.argv[1]
+#     print("Subreddit: {}".format(subreddit))
+#     print("Number of subscribers: {}".format(number_of_subscribers(subreddit)))
 
 
