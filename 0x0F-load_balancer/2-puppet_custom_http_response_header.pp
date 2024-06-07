@@ -1,5 +1,7 @@
 # Use Puppet to automate the task of creating a custom HTTP header response
 
+import 'puppetlabs/stdlib/file_line'
+
 exec {'update':
   command => '/usr/bin/apt-get update',
 }
