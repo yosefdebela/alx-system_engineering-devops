@@ -13,7 +13,7 @@ if __name__ == '__main__':
     employeeName = response.json().get('name')
 
     todoUrl = url + "/todos"
-    response = requests.get(todoUrl) # this will gives a list of dicts
+    response = requests.get(todoUrl)   # this will gives a list of dicts
     tasks = response.json()
     done = 0
     done_tasks = []
