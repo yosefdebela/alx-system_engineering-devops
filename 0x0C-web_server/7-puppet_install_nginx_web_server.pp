@@ -1,33 +1,25 @@
-# Nginx configuration with Puppet
-class { 'nginx': }
+# Script to install nginx using puppet
 
-# Remove default Nginx configuration
-nginx::resource::server { 'default':
-  ensure => absent,
+package {'nginx':
+  ensure => 'present',
 }
 
-# Create custom index.html with Hello World!
-file { '/var/www/html/index.html':
-  ensure  => file,
-  content => 'Hello World!',
-  mode    => '0644',
+exec {'install':
+  command  => 'sudo apt-get update ; sudo apt-get -y install nginx',
+  provider => shell,
+
 }
 
-# Configure Nginx server with redirect
-nginx::resource::server { 'hello_world':
-  ensure               => present,
-  listen_port          => 80,
-  server_name         => ['_'],
-  www_root             => '/var/www/html',
-  index_files          => ['index.html'],
-  location_cfg_append  => {
-    'rewrite' => '^/redirect_me https://www.example.com permanent',
-  },
+exec {'Hello':
+  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
+  provider => shell,
 }
 
-# Ensure Nginx service is running
-service { 'nginx':
-  ensure  => running,
-  enable  => true,
-  require => Class['nginx'],
+exec {'sudo sed -i "s/server_name _;/server_name _;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com/watch?v=iDRnZDQ5zrg\/;\\n\\t}/" /etc/nginx/sites-available/default':
+  provider => shell,
+}
+
+exec {'run':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
