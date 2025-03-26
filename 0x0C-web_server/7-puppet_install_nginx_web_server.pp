@@ -1,25 +1,38 @@
-# Script to install nginx using puppet
+class nginx_setup {
 
-package {'nginx':
-  ensure => 'present',
+  # Ensure Nginx is installed
+  package { 'nginx':
+    ensure => installed,
+  }
+
+  # Ensure Nginx service is enabled and running
+  service { 'nginx':
+    ensure  => running,
+    enable  => true,
+    require => Package['nginx'],
+  }
+
+  # Create the index.html file with "Hello World!"
+  file { '/var/www/html/index.html':
+    ensure  => file,
+    content => 'Hello World!',
+    owner   => 'www-data',
+    group   => 'www-data',
+    mode    => '0644',
+    require => Package['nginx'],
+  }
+
+  # Configure Nginx default site
+  file { '/etc/nginx/sites-available/default':
+    ensure  => file,
+    content => template('nginx/default.erb'),
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    require => Package['nginx'],
+    notify  => Service['nginx'],
+  }
 }
 
-exec {'install':
-  command  => 'sudo apt-get update ; sudo apt-get -y install nginx',
-  provider => shell,
-
-}
-
-exec {'Hello':
-  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
-  provider => shell,
-}
-
-exec {'sudo sed -i "s/server_name _;/server_name _;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com/watch?v=iDRnZDQ5zrg\/;\\n\\t}/" /etc/nginx/sites-available/default':
-  provider => shell,
-}
-
-exec {'run':
-  command  => 'sudo service nginx restart',
-  provider => shell,
-}
+# Apply the nginx_setup class
+include nginx_setup
